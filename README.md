@@ -8,12 +8,13 @@ This repository contains a collection of iOS applications built with SwiftUI, ea
 
 ## Completed Projects
 
-| Day | Project | Description |
-|-----|---------|-------------|
-| Day 1 | WeSplit | Bill splitting and tip calculation app |
-| Day 1 | WeConverse | Unit conversion application |
-| Day 2 | WeGuessTheFlag | Interactive flag guessing game |
-| Day 3 | - | Coming tomorrow... |
+| Day | Project | Description | Status |
+|-----|---------|-------------|--------|
+| Day 1 | WeSplit | Bill splitting and tip calculation app | Done |
+| Day 1 | WeConverse | Unit conversion application | Done |
+| Day 2 | WeGuessTheFlag | Interactive flag guessing game | Done |
+| Day 3 | - | ViewModifier and View Composition practice | - |
+| Day 4 | WeRockPaperScissors | Rock Paper Scissors game with enum | Done |
 
 ## Learning Goals
 
