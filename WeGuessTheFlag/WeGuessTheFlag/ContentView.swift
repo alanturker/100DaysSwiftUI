@@ -7,6 +7,22 @@
 
 import SwiftUI
 
+struct LargeTitle: ViewModifier {
+    var color: Color = .black
+    
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle.bold())
+            .foregroundStyle(color)
+    }
+}
+
+extension View {
+    func largeTitle(color: Color = .black) -> some View {
+        modifier(LargeTitle(color: color))
+    }
+}
+
 struct ContentView: View {
     
     @State private var countries: [String] = ["Italy", "Estonia", "Germany", "France", "Ireland", "Spain", "UK", "Ukraine", "Poland", "Nigeria", "US"].shuffled()
@@ -25,8 +41,7 @@ struct ContentView: View {
                 .ignoresSafeArea()
             VStack(spacing: 30) {
                 Text("Guess the Flag")
-                    .font(.largeTitle.bold())
-                    .foregroundStyle(.white)
+                    .largeTitle(color: .white)
                 VStack {
                     Text("Tap the flag of:")
                         .foregroundStyle(.white)
@@ -40,9 +55,7 @@ struct ContentView: View {
                         Button {
                             flagTapped(number)
                         } label: {
-                            Image(countries[number])
-                                .clipShape(.buttonBorder)
-                                .shadow(radius: 5)
+                            FlagImage(number: number, countries: countries)
                         }
                     }
 
@@ -103,4 +116,15 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+}
+
+struct FlagImage: View {
+    var number: Int
+    var countries: [String]
+    
+    var body: some View {
+        Image(countries[number])
+            .clipShape(.buttonBorder)
+            .shadow(radius: 5)
+    }
 }
