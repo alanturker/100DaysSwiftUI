@@ -15,6 +15,7 @@ This repository contains a collection of iOS applications built with SwiftUI, ea
 | Day 2 | WeGuessTheFlag | Interactive flag guessing game | Done |
 | Day 3 | - | ViewModifier and View Composition practice | - |
 | Day 4 | WeRockPaperScissors | Rock Paper Scissors game with enum | Done |
+| Day 5 | WeBetterRest | CoreML, date processing and inflect:true | Done |
 
 ## Learning Goals
 
