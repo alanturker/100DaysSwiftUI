@@ -10,12 +10,29 @@ This repository contains a collection of iOS applications built with SwiftUI, ea
 
 | Day | Project | Description | Status |
 |-----|---------|-------------|--------|
-| Day 1 | WeSplit | Bill splitting and tip calculation app | Done |
-| Day 1 | WeConverse | Unit conversion application | Done |
-| Day 2 | WeGuessTheFlag | Interactive flag guessing game | Done |
-| Day 3 | - | ViewModifier and View Composition practice | - |
-| Day 4 | WeRockPaperScissors | Rock Paper Scissors game with enum | Done |
-| Day 5 | WeBetterRest | CoreML, date processing and inflect:true | Done |
+| Day 1-3 | WeSplit | Bill splitting and tip calculation app | ✅ Done |
+| Day 4-6 | WeConverse | Unit conversion application | ✅ Done |
+| Day 7-9 | WeGuessTheFlag | Interactive flag guessing game | ✅ Done |
+| Day 10-12 | ViewModifier Practice | ViewModifier and View Composition practice | ✅ Done |
+| Day 13-15 | WeRockPaperScissors | Rock Paper Scissors game with enum | ✅ Done |
+| Day 16-18 | WeBetterRest | CoreML, date processing and machine learning | ✅ Done |
+| Day 19-21 | WordScrambleApp | Word game with list handling and bundles | ✅ Done |
+| Day 22-24 | AnimationsApp | Animations, transitions, and gestures | ✅ Done |
+| Day 25 | EdutainmentApp | Milestone project - Math learning game | ✅ Done |
+| Day 26-28 | iExpenseApp | Expense tracking with UserDefaults | ✅ Done |
+| Day 29-31 | Moonshot | Space missions app with JSON and GeometryReader | ✅ Done |
+| Day 32-34 | iTrackHabit | Milestone project - Habit tracking app | ✅ Done |
+| Day 35-38 | Navigation | NavigationStack and navigation patterns | ✅ Done |
+| Day 39-42 | CupcakeCorner | Networking, URLSession, and forms | ✅ Done |
+| Day 43-46 | Bookworm | SwiftData for book tracking | ✅ Done |
+| Day 47-48 | SwiftDataProject | Advanced SwiftData techniques | ✅ Done |
+| Day 49-52 | UserFriendApp | JSON decoding and networking | ✅ Done |
+| Day 53-55 | NameRecord | Milestone project - Photo and name storage | ✅ Done |
+| Day 56-59 | Instafilter | Core Image, PhotosPicker, and ShareLink | ✅ Done |
+| Day 60-62 | AccessibilitySandbox | Accessibility features and VoiceOver | ✅ Done |
+| Day 63-67 | BucketList | MapKit, biometric authentication | ✅ Done |
+| Day 68-73 | Project14Map | Advanced MapKit features | 🔄 In Progress |
+| Day 74-79 | Current Project | Advanced SwiftUI techniques | 🔄 In Progress |
 
 ## Learning Goals
 
@@ -33,14 +50,15 @@ Each project is organized as a separate Xcode project with:
 - Assets and resources
 - Proper project configuration
 
-## Future Plans
+## Upcoming Topics
 
-This journey will continue with more complex applications covering:
-- Data persistence and Core Data
-- Networking and API integration
-- Advanced animations and transitions
-- Custom views and components
-- App Store deployment
+As I approach the final stretch of the 100 Days challenge, upcoming topics include:
+- Advanced SwiftUI architecture patterns
+- Performance optimization techniques
+- Testing and debugging strategies
+- Final capstone projects
+- Portfolio app refinement
+- App Store deployment preparation
 
 ## Getting Started
 
@@ -49,11 +67,33 @@ Each project can be opened and run independently in Xcode. Simply open the `.xco
 ## Technologies Used
 
 - **SwiftUI** - Modern declarative UI framework
-- **Xcode** - iOS development environment
 - **Swift** - Programming language
+- **Xcode** - iOS development environment
+- **SwiftData** - Data persistence framework
+- **Core ML** - Machine learning integration
+- **MapKit** - Location and map services
+- **Core Image** - Image processing and filters
+- **URLSession** - Networking and API calls
+- **PhotosPicker** - Photo selection
+- **Biometric Authentication** - Face ID / Touch ID
+
+## Key Concepts Learned
+
+- State management (@State, @Binding, @Observable)
+- Navigation patterns and deep linking
+- Data persistence (UserDefaults, SwiftData)
+- Networking and JSON decoding
+- Animations and transitions
+- Accessibility features
+- Core Image filters
+- MapKit integration
+- Machine learning with Core ML
+- Form validation
+- Gesture recognizers
 
 ---
 
-*Started: September 22nd*  
+*Started: September 30th*  
+*Current Day: 79/100*  
 *Status: In Progress*  
 *Goal: 100 Days of SwiftUI Mastery*

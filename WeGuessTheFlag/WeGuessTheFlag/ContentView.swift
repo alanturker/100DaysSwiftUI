@@ -35,6 +35,13 @@ struct ContentView: View {
     
     @State private var showFinish = false
     @State private var numberOfQuestionsAnswered = 0
+    @State private var flagBorderColor = Color.white
+    @State private var isAnswered: Bool = false
+    @State private var animationAmount = 0.0
+    @State private var selectedNumber: Int? = nil
+    
+    @State private var rotationAmounts: [Double] = [0, 0, 0]
+    
     var body: some View {
         ZStack {
             LinearGradient(colors: [.blue, .black], startPoint: .top, endPoint: .bottom)
@@ -54,8 +61,20 @@ struct ContentView: View {
                     ForEach(0..<3) { number in
                         Button {
                             flagTapped(number)
+                            
+                            withAnimation(.spring(response: 0.8, dampingFraction: 0.6, blendDuration: 0)) {
+                                rotationAmounts[number] += 360
+                            }
+                            
                         } label: {
-                            FlagImage(number: number, countries: countries)
+                            FlagImage(number: number,
+                                      countries: countries,
+                                      color: getFlagBorderColor(forNumber: number))
+                            .rotation3DEffect(.degrees(rotationAmounts[number]), axis: (x: 0, y: 1, z: 0))
+                            .opacity(opacity(forNumber: number))
+                            .scaleEffect(scale(forNumber: number))
+                            .animation(.easeInOut(duration: 0.35), value: selectedNumber)
+                            .animation(.easeInOut(duration: 0.35), value: isAnswered)
                         }
                     }
 
@@ -87,6 +106,8 @@ struct ContentView: View {
     
     private func flagTapped(_ number: Int) {
         numberOfQuestionsAnswered += 1
+        isAnswered = true
+        selectedNumber = number
         if number == correctAnswer {
             scoreTitle = "Correct"
             score += 1
@@ -95,23 +116,53 @@ struct ContentView: View {
             score -= 1
         }
         
-        if numberOfQuestionsAnswered >= 8 {
-            showFinish = true
-        } else {
-            showingScore = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            if score >= 10 {
+                showFinish = true
+            } else {
+                showingScore = true
+            }
         }
-        
     }
     
     private func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+        withAnimation {
+            flagBorderColor = .white
+            isAnswered = false
+            selectedNumber = nil
+        }
+       
     }
     
     private func restart() {
         score = 0
+        numberOfQuestionsAnswered = 0
         askQuestion()
     }
+    
+    private func getFlagBorderColor(forNumber number: Int) -> Color {
+        if number == correctAnswer && isAnswered {
+            return .green
+        } else if number != correctAnswer && isAnswered {
+            return .red
+        } else {
+            return .white
+        }
+    }
+    
+    private func opacity(forNumber number: Int) -> Double {
+            guard isAnswered else { return 1 }
+            if number == selectedNumber { return 1 }
+            return 0.25
+        }
+        
+        private func scale(forNumber number: Int) -> CGFloat {
+            guard isAnswered else { return 1 }
+            if number == selectedNumber { return 1 }
+            return 0.9
+        }
 }
 
 #Preview {
@@ -121,10 +172,13 @@ struct ContentView: View {
 struct FlagImage: View {
     var number: Int
     var countries: [String]
+    var color: Color = .white
     
     var body: some View {
         Image(countries[number])
-            .clipShape(.buttonBorder)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .overlay(RoundedRectangle(cornerRadius: 20)
+                .stroke(color.opacity(1.0), lineWidth: 4))
             .shadow(radius: 5)
     }
 }
